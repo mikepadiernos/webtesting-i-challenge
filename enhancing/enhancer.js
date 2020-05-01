@@ -6,18 +6,15 @@ module.exports = {
 };
 
 function succeed(item) {
-  return item.enhancement <= 20
+  return item.enhancement < 20
     ? { ...item, enhancement: item.enhancement + 1 }
     : { ...item};
 }
 
 function fail(item) {
   const {enhancement, durability} = item;
-  return enhancement > 16
-    ? { ...item, enhancement: enhancement - 1, durability: durability - 1 }
-    : enhancement >= 15
-      ? { ...item, durability: durability - 10}
-      : { ...item, durability: durability -5};
+  if (enhancement > 16) return { ...item, enhancement: enhancement - 1} &&
+  enhancement < 15 ? {...item, durability: durability - 5} : {...item, enhancement: enhancement -1, durability: durability - 10};
 }
 
 function repair(item) {
