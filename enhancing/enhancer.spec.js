@@ -21,9 +21,9 @@ describe("Perform our tests", () => {
 	})
 	describe("Fail", () => {
 		it('should have the item\'s enhancement decrease by 1 and durability by 10 if enhancement is greater than 16', () => {
-			expect(enhancer.fail({ name: 'Plate Armor of Protection', durability: 98, enhancement: 25 })).toEqual({
+			expect(enhancer.fail({ name: 'Plate Armor of Protection', durability: 6, enhancement: 25 })).toEqual({
 				name: 'Plate Armor of Protection',
-				durability: 88,
+				durability: 0,
 				enhancement: 24
 			})
 		});

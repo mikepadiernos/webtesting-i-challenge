@@ -13,8 +13,10 @@ function succeed(item) {
 
 function fail(item) {
   const {enhancement, durability} = item;
-  if (enhancement > 16) return { ...item, enhancement: enhancement - 1} &&
-  enhancement < 15 ? {...item, durability: durability - 5} : {...item, enhancement: enhancement -1, durability: durability - 10};
+  if (enhancement > 16) return { ...item, enhancement: enhancement - 1, durability: durability - 10} &&
+  enhancement < 15 && durability >= 10
+    ? {...item, durability: durability - 5}
+    : {...item, enhancement: enhancement -1, durability: 0}
 }
 
 function repair(item) {
